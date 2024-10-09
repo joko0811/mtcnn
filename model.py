@@ -30,8 +30,8 @@ class PNet(nn.Module):
         self.training = False
 
         if pretrained:
-            state_dict_path = os.path.join(
-                os.path.dirname(__file__), "../../../weights/pnet.pt"
+            state_dict_path = os.path.abspath(
+                os.path.join(os.path.dirname(__file__), "../../../weights/pnet.pt")
             )
             state_dict = torch.load(state_dict_path)
             self.load_state_dict(state_dict)
@@ -77,8 +77,8 @@ class RNet(nn.Module):
         self.training = False
 
         if pretrained:
-            state_dict_path = os.path.join(
-                os.path.dirname(__file__), "../../../weights/rnet.pt"
+            state_dict_path = os.path.abspath(
+                os.path.join(os.path.dirname(__file__), "../../../weights/rnet.pt")
             )
             state_dict = torch.load(state_dict_path)
             self.load_state_dict(state_dict)
@@ -132,8 +132,8 @@ class ONet(nn.Module):
         self.training = False
 
         if pretrained:
-            state_dict_path = os.path.join(
-                os.path.dirname(__file__), "../../../weights/onet.pt"
+            state_dict_path = os.path.abspath(
+                os.path.join(os.path.dirname(__file__), "../../../weights/onet.pt")
             )
             state_dict = torch.load(state_dict_path)
             self.load_state_dict(state_dict)
