@@ -264,7 +264,7 @@ def nms_torch(boxes, scores, threshold, method):
         if method == "Min":
             o = inter / torch.minimum(area[i], area[idx])
         else:
-            o = inter / (area[i] + area[idx] - inter)
+            o = inter / (area[i] + area[idx] - inter + 1e-9)
         I = I[(o <= threshold).nonzero().view(-1)]
 
     pick = pick[:counter].clone()
